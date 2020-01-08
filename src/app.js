@@ -15,17 +15,10 @@ import 'react-dates/lib/css/_datepicker.css'
 
 const store = configureStore()
 
-//store.require("history").createBrowserHistory()
-
 store.subscribe(()=>{
   const state = store.getState()
 })
 
-const Test = ()=>(
-  <div>
-    <h1>Test</h1>
-  </div>
-)
 
 const jsx = (
   <Provider store={store}>
