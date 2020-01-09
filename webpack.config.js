@@ -19,7 +19,8 @@ module.exports = (env) => {
         loader: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/
-      }, {
+      },
+      {
         test: /\.s?css$/,
         use: CSSExtract.extract({
           use: [
