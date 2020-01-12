@@ -6,7 +6,7 @@
   "license": "MIT",
   "engines": {
     "yarn": "1.13.0"
-  }
+  },
   "scripts": {
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
