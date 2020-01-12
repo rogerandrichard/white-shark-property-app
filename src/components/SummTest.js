@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 
 export default class SummTest extends React.Component {
   onTest = ()=>{
-    return 'Test 2'
+    return 'Nut Weiner'
   }
 
   render(){
     return(
       <div>
-        Test 1 {this.onTest()}
+        Test {this.onTest()}
       </div>
     )
   }
