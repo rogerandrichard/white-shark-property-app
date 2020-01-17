@@ -1,6 +1,5 @@
 import * as firebase from 'firebase'
 
-//console.log('EEEEEE', process.env.FIREBASE_DATABASE_URL,)
 
   const firebaseConfig = {
     apiKey: process.env.FIREBASE_API_KEY,
@@ -12,7 +11,6 @@ import * as firebase from 'firebase'
 }
 
 
-console.log('EEEEEE', firebaseConfig)
 
 // }else if(process.env.NODE_ENV === 'production'){
 //   firebaseConfig = {

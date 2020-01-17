@@ -10,9 +10,6 @@ if (process.env.NODE_ENV === 'test'){
   require('dotenv').config({path: '.env.development'})
 }
 
-console.log('*****************', process.env.FIREBASE_DATABASE_URL)
-//console.log('*****************', process.env.FIREBASE_API_KEY)
-
 module.exports = (env) => {
   const isProduction = env === 'production';
   const CSSExtract = new ExtractTextPlugin('styles.css');
