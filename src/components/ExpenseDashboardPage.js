@@ -7,9 +7,8 @@ import SummTest from './SummTest'
 
 const ExpenseDashboardPage = () => (
   <div>
-    <SummTest />
-    <ExpenseListFilters />
     <ExpenseSummary />
+    <ExpenseListFilters />
     <ExpenseList />
   </div>
 );

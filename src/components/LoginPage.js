@@ -3,25 +3,12 @@ import { connect } from 'react-redux'
 import { startLogin } from '../actions/auth'
 
 export const LoginPage = ({ startLogin })=>(
-    <div>
-      <h3>Log In</h3>
-      <table>
-        <tbody>
-          <tr>
-            <th>Name</th>
-            <td></td>
-          </tr>
-          <tr>
-            <th>Password</th>
-            <td></td>
-          </tr>
-          <tr>
-            <th colSpan={2}>
-              <button onClick={ startLogin }>Log In</button>
-            </th>
-          </tr>
-        </tbody>
-      </table>
+    <div className="box-layout">
+      <div className="box-layout__box">
+        <h1 className="box-layout__title">Expensify</h1>
+        <p>Time to get expenses under control</p>
+        <button className="button" onClick={ startLogin }>Login with Google</button>
+      </div>
     </div>
   )
 
