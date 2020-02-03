@@ -9,6 +9,10 @@
 -------------------------
 # Heroku
 
+Install Heroku
+- go to heroku.cli and download Mac Installer
+
+
 heroku --version
 
 heroku login (authenticate with heroku account)

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { startLogout } from '../actions/auth'
 import { connect } from 'react-redux'
+import Photo from './PhotoPage'
 
 
 export const Header = ({ startLogout }) => (
@@ -11,6 +12,7 @@ export const Header = ({ startLogout }) => (
         <Link className="header__title" to="/dashboard">
           <h1>Expensify</h1>
         </Link>
+        <Photo />
         <button className='button button--link' onClick={startLogout}>Log Out</button>
       </div>
     </div>

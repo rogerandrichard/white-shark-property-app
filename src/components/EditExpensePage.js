@@ -2,19 +2,40 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { startEditExpense, startRemoveExpense } from '../actions/expenses';
+import ConfirmModal from './ConfirmModal'
 
 export class EditExpensePage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedOption: undefined,
+    };
+  }
+
   onSubmit = (expense) => {
     this.props.startEditExpense(this.props.expense.id, expense);
     this.props.history.push('/');
-  };
-  onRemove = () => {
+  }
+
+  onRemove = ()=>{
+    this.setState(()=>({selectedOption: true}))
+  }
+
+  killExpense = () => {
     this.props.startRemoveExpense({ id: this.props.expense.id });
     this.props.history.push('/');
-  };
+    this.setState(()=>({selectedOption: false}))
+  }
+
+  noKillExpense = () => {
+    this.setState(()=>({selectedOption: false}))
+  }
+
   render() {
     return (
       <div>
+        <ConfirmModal selectedOption={this.state.selectedOption} killExpense={()=>{this.killExpense()}}  noKillExpense={this.noKillExpense} />
         <div className='page-header'>
           <div className='content-container'>
             <h1 className='page-header__title'>Edit Expense</h1>
