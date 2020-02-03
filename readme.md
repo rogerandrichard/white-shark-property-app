@@ -1,26 +1,33 @@
-# Git Commands and Heroku
+# Git Commands
 
-git init - Create a new git repo
-git status - View the changes to your project code
-git add - Add files to staging area
-git commit - Creates a new commit with files from staging area
-git log - View recent commits
+- git init - Create a new git repo
+- git status - View the changes to your project code
+- git add - Add files to staging area
+- git commit - Creates a new commit with files from staging area
+- git log - View recent commits
 
 -------------------------
+# Heroku
+
+Install Heroku
+- go to heroku.cli and download Mac Installer
+
+
 heroku --version
 
 heroku login (authenticate with heroku account)
+
 heroku create expensify-white-shark
 
 Behind scenes it is:
 1) setting up new application
 2) adding a new remote to git(run git remote -v)
 
-git push origin master OR git push (defaults to origin master)
-git push heroku master
-   - installing dependencies
-   - run webpack
-   - start server
+- git push origin master OR git push (defaults to origin master)
+- git push heroku master
+   1) installing dependencies
+   2) run webpack
+   3) start server
 
 heroku open(will open your app url in browser)
 
@@ -37,5 +44,4 @@ The following will run after Heroku installs all of the dependencies:
 
 "heroku-postbuild": "yarn run build:prod"
 
-
-Heroku logs shows logs on Heroku server
+'heroku logs' shows logs on Heroku server

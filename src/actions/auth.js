@@ -1,15 +1,33 @@
-import { firebase, googleAuthProvider } from '../firebase/firebase'
+import { firebase, googleAuthProvider, facebookAuthProvider } from '../firebase/firebase'
 
-export const login = (uid)=>({
+export const login = (uid, photoURL)=>({
   type: 'LOGIN',
-  uid
+  uid,
+  photoURL
 })
 
 export const startLogin = ()=> {
-  return ()=> {
-    return firebase.auth().signInWithPopup(googleAuthProvider)
+    return ()=> {
+      return firebase.auth().signInWithPopup(googleAuthProvider)
   }
 }
+
+export const startLogin_f = ()=> {
+  var provider = new firebase.auth.FacebookAuthProvider();
+  console.log('Provider', provider)
+  return firebase.auth().signInWithPopup(provider).then(function(result) {
+    console.log('Result', result)
+    var user = result.user;
+    console.log('User Photo', user.photoURL)
+  }).catch(function(error) {
+    console.log('Fuck', error)
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    var email = error.email;
+    var credential = error.credential;
+  });
+}
+
 
 
 export const logout = ()=>({
