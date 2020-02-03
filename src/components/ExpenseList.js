@@ -22,13 +22,18 @@ export const ExpenseList = (props) => (
           })
         )
     }
+
+
+
     </div>
   </div>
 );
 
 const mapStateToProps = (state) => {
+  console.log('State', state)
   return {
-    expenses: selectExpenses(state.expenses, state.filters)
+    expenses: selectExpenses(state.expenses, state.filters),
+    jobs: state.jobs
   };
 };
 
