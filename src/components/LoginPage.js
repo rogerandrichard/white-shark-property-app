@@ -5,8 +5,7 @@ import { startLogin, startLogin_f } from '../actions/auth'
 export const LoginPage = ({ startLogin })=>(
     <div className="box-layout">
       <div className="box-layout__box">
-        <h1 className="box-layout__title">Expensify</h1>
-        <p>Time to get expenses under control</p>
+        <h1 className="box-layout__title">White Shark Property Managment</h1>
         <button className="button" onClick={ startLogin }>Login with Google</button>
         <button className="button" onClick={ startLogin_f }>Login with Facebook</button>
       </div>
