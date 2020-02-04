@@ -20,7 +20,6 @@ export const startLogin_f = ()=> {
     var user = result.user;
     console.log('User Photo', user.photoURL)
   }).catch(function(error) {
-    console.log('Fuck', error)
     var errorCode = error.code;
     var errorMessage = error.message;
     var email = error.email;

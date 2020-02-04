@@ -9,8 +9,6 @@ import SummTest from './SummTest'
 
 const ExpenseDashboardPage = () => (
   <div>
-    <Link className='list-item' to={`/completed`}>Completed</Link>
-
     <ExpenseSummary />
     <ExpenseListFilters />
     <ExpenseList />

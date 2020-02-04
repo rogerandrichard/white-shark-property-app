@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import { startSetExpenses } from './actions/expenses';
+import { startSetTransactions } from './actions/property/transactions';
 import { login, logout } from './actions/auth';
-import getVisibleExpenses from './selectors/expenses';
+//import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
@@ -30,28 +30,6 @@ const renderApp = ()=>{
 }
 
 
-let downLoadPhoto = new Promise((resolve, reject)=>{
-  if(true){
-    console.log('In 1st promise')
-    resolve(true)
-  }else{
-    reject('Pee')
-  }
-})
-.then((result)=>{
-  return new Promise((resolve, reject)=>{
-    if(result){
-      console.log('In 2nd promise')
-      resolve('Hee Haw')
-    }else{
-      reject('Pee')
-    }
-  })
-})
-.then((result)=>console.log('Nut', result)).catch((msg)=>console.log('error', msg))
-
-downLoadPhoto
-
 ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 
@@ -59,10 +37,10 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user)=>{
   if (user) {
     store.dispatch(login(user.uid, user.photoURL))
-    store.dispatch(startSetExpenses()).then(()=>{
+    store.dispatch(startSetTransactions()).then(()=>{
     renderApp()
       if (history.location.pathname === '/') {
-        history.push('/dashboard')
+        history.push('/dashboardp')
       }
     })
 
