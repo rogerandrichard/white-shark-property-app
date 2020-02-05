@@ -5,6 +5,13 @@ export default (state = {}, action)=>{
         uid: action.uid,
         photoURL: action.photoURL
       }
+
+    case 'LOGIN_MANUAL':
+      return {
+        uid: action.name,
+        password: action.password
+      }
+
     case 'LOGOUT':
       return {}
     default:

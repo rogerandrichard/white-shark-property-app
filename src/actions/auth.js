@@ -38,3 +38,12 @@ export const startLogout = ()=> {
     return firebase.auth().signOut()
   }
 }
+
+
+export const loginManual = ({name, password})=>{
+  return {
+    type: 'LOGIN_MANUAL',
+    name,
+    password
+  }
+}

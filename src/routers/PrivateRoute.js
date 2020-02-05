@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
-import Header from '../components/Header';
+import Header from '../components/property/Header';
 
 export const PrivateRoute = ({
   isAuthenticated,

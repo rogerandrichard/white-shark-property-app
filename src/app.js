@@ -30,24 +30,32 @@ const renderApp = ()=>{
 }
 
 
-ReactDOM.render(<LoadingPage />, document.getElementById('app'));
+//ReactDOM.render(<LoadingPage />, document.getElementById('app'));
+const state = store.getState()
+if(state.name==='roger'){
+  renderApp()
+        if (history.location.pathname === '/') {
+          history.push('/dashboard')
+        }
+}else{
+  renderApp()
 
+}
 
-
-firebase.auth().onAuthStateChanged((user)=>{
-  if (user) {
-    store.dispatch(login(user.uid, user.photoURL))
-    store.dispatch(startSetTransactions()).then(()=>{
-    renderApp()
-      if (history.location.pathname === '/') {
-        history.push('/dashboardp')
-      }
-    })
-
-
-  } else {
-    store.dispatch(logout())
-    renderApp()
-    history.push('/')
-  }
-})
+// firebase.auth().onAuthStateChanged((user)=>{
+//   if (user) {
+//     store.dispatch(login(user.uid, user.photoURL))
+//     store.dispatch(startSetTransactions()).then(()=>{
+//     renderApp()
+//       if (history.location.pathname === '/') {
+//         history.push('/dashboardp')
+//       }
+//     })
+//
+//
+//   } else {
+//     store.dispatch(logout())
+//     renderApp()
+//     history.push('/')
+//   }
+// })
