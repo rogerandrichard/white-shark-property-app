@@ -9,7 +9,8 @@ class LoginPage extends React.Component {
     super(props)
     this.state = {
       name: '',
-      password: ''
+      password: '',
+      errorMessage: ''
     }
   }
 
@@ -30,13 +31,20 @@ class LoginPage extends React.Component {
   onSubmit= (e)=>{
     e.preventDefault()
     console.log('State', this.state)
-    this.props.loginManual({ name: this.state.name, password: this.state.password })
-    try {
-      if (history.location.pathname === '/') {
-        history.push('/dashboard')
+    if(this.state.password === '12161026'){
+      console.log('State Password', this.state.password)
+      this.props.loginManual({ name: this.state.name, password: this.state.password })
+      try {
+        if (history.location.pathname === '/') {
+          history.push('/dashboard')
+        }
+      }catch(e) {
+          alert(e.message)
       }
-    }catch(e) {
-      alert(e.message)
+    }else{
+      this.setState({
+        errorMessage: 'What The Fuck!!'
+      })
     }
   }
 
@@ -49,14 +57,17 @@ class LoginPage extends React.Component {
             <input
               name='name'
               onChange = { this.onNameChange }
+              className="login-input"
             />
             <input
               type='password'
               name='password'
               onChange = { this.onPasswordChange }
+              className="login-input"
             />
-            <button className="button">Login</button>
+          <button className="button_manual">Logins</button>
           </form>
+          { this.state.errorMessage ? <span>{this.state.errorMessage}</span> : null }
         </div>
       </div>
     )
