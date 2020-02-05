@@ -20,7 +20,6 @@ export const startAddTransaction = (transactionData = {})=>{
       createdAt = 0
     } = transactionData
     const transaction = { location, typeIncome, description, note, amount, createdAt }
-
     return database.ref(`users/${uid}/transactions`).push(transaction).then((ref)=>{
       dispatch(addTransaction({
         id: ref.key,
@@ -79,6 +78,7 @@ export const setTransactions = (transactions)=>({
 export const startSetTransactions = ()=>{
   return (dispatch, getState)=> {
     const uid = getState().auth.uid
+    console.log('UID: ' , uid)
     return database.ref(`users/${uid}/transactions`)
     .once('value')
     .then((snapshot)=>{

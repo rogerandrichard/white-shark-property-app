@@ -32,8 +32,8 @@ const renderApp = ()=>{
 
 //ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 const state = store.getState()
-if(state.name==='roger'){
-  renderApp()
+if(state.name==='roger' || state.name==='shanti'){
+      renderApp()
         if (history.location.pathname === '/') {
           history.push('/dashboard')
         }
