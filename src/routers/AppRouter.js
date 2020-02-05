@@ -6,7 +6,7 @@ import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
 import AddExpensePage from '../components/AddExpensePage';
 import EditExpensePage from '../components/EditExpensePage';
 import NotFoundPage from '../components/NotFoundPage';
-import LoginPage from '../components/property/LoginPage'
+import LoginPage from '../components/property/LogInPage'
 
 import PropertyDashboardPage from '../components/property/PropertyDashboardPage';
 import AddTransactionPage from '../components/property/AddTransactionPage';
