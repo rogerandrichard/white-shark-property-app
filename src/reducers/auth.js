@@ -8,8 +8,7 @@ export default (state = {}, action)=>{
 
     case 'LOGIN_MANUAL':
       return {
-        uid: action.name,
-        password: action.password
+        uid: action.password
       }
 
     case 'LOGOUT':

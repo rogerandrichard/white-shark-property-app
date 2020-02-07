@@ -10,7 +10,7 @@ export const Header = ({ startLogout }) => (
     <div className='content-container'>
       <div className='header__content'>
         <Link className="header__title" to="/dashboard">
-          <h1>White Shark Property App</h1>
+          <h1>Expensify App</h1>
         </Link>
         <Photo />
         <button className='button button--link' onClick={startLogout}>Log Out</button>

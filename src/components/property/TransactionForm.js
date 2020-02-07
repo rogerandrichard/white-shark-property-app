@@ -14,6 +14,7 @@ export default class TransactionForm extends React.Component {
       amount: props.transaction ? (props.transaction.amount / 100).toString() : '',
       createdAt: props.transaction ? moment(props.transaction.createdAt) : moment(),
       calendarFocused: false,
+      form_button: props.transaction ? 'Edit Transaction' : 'Add Transaction',
       error: ''
     };
   }
@@ -54,8 +55,13 @@ export default class TransactionForm extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    if (!this.state.description || !this.state.amount) {
-      this.setState(() => ({ error: 'Please provide description and amount.' }));
+    if (!this.state.description || !this.state.amount || this.state.location==='None Selected' || this.state.typeIncome==='None Selected') {
+      let error = 'Please provide '
+      if(!this.state.description){ error+='Description / ' }
+      if(!this.state.amount){ error+='Amount / ' }
+      if(this.state.location==='None Selected'){ error+='Location / ' }
+      if(this.state.typeIncome==='None Selected'){ error+='Income Type / ' }
+      this.setState(() => ({ error }));
     } else {
       this.setState(() => ({ error: '' }));
       this.props.onSubmit({
@@ -68,11 +74,11 @@ export default class TransactionForm extends React.Component {
       });
     }
   };
+
+
   render() {
     return (
-
       <form className='form' onSubmit={this.onSubmit}>
-        Income:{ this.state.typeIncome }
         {this.state.error && <p className='form__error'>{this.state.error}</p>}
         <input
           className='text-input'
@@ -88,7 +94,7 @@ export default class TransactionForm extends React.Component {
           value={this.state.typeIncome}
           onChange={this.onTypeIncomeChange}
         >
-          <option value="">All $</option>
+          <option value="None Selected">None Selected</option>
           <option value="Revenue">Revenue</option>
           <option value="Expense">Expense</option>
         </select>
@@ -100,9 +106,9 @@ export default class TransactionForm extends React.Component {
           value={this.state.location}
           onChange={this.onLocationChange}
         >
-          <option value="all">All Locs</option>
+          <option value="None Selected">None Selected</option>
           <option value="27 Highland Drive">27 Highland Drive</option>
-          <option value="47 Highland Avenue">47 Highland Avenue</option>
+          <option value="47 Holland Avenue">47 Holland Avenue</option>
           <option value="88 Osler Street">88 Osler Street</option>
           <option value="36 Morse Street">36 Morse Street</option>
           <option value="249 Chisholm Avenue">249 Chisholm Avenue</option>
@@ -136,8 +142,9 @@ export default class TransactionForm extends React.Component {
         >
         </textarea>
         <div>
-          <button className='button'>Save Transaction</button>
+          <button className='button'>{ this.state.form_button }</button>
         </div>
+        {this.state.error && <p className='form__error'>{this.state.error}</p>}
       </form>
     )
   }

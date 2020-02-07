@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { loginManual } from '../../actions/auth'
-import AppRouter, { history } from '../../routers/AppRouter';
+import { history } from '../../routers/AppRouter';
 import { startSetTransactions } from '../../actions/property/transactions';
 
 
@@ -36,8 +36,8 @@ class LoginPage extends React.Component {
     if(this.state.password === '12161026'){
       console.log('State Password', this.state.password)
       this.props.loginManual({ name: this.state.name, password: this.state.password })
-      this.props.startSetTransactions()
-  } 
+//      this.props.startSetTransactions()
+  }
 }
 
   render(){
@@ -71,14 +71,16 @@ const mapDispatchToProps = (dispatch)=>{
   return {
     loginManual: (obj)=>{dispatch(loginManual(obj))},
     startSetTransactions: ()=>{dispatch(startSetTransactions()).then(()=>{
-        try {
-          if (history.location.pathname === '/') {
-            history.push('/dashboard')
-          }
-        }catch(e) {
-            alert(e.message)
+      try {
+        if (history.location.pathname === '/') {
+          history.push('/dashboard')
         }
-      })}
+      }catch(e) {
+          alert(e.message)
+      }
+      }
+    )
+    }
   }
 }
 

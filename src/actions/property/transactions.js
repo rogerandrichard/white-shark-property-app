@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+//import uuid from 'uuid';
 
 import database from '../../firebase/firebase'
 
@@ -74,6 +74,25 @@ export const setTransactions = (transactions)=>({
   type: 'SET_TRANSACTIONS',
   transactions
 })
+
+
+// export const startSetTransactions = ()=>{
+//   return (dispatch, getState)=> {
+//     const uid = getState().auth.uid
+//     console.log('UID: ' , uid)
+//     return database.ref(`users/${uid}/transactions`)
+//     .on('value', (snapshot)=>{
+//       const transactions = []
+//       snapshot.forEach((childSnapshot)=>{
+//         transactions.push({
+//           id: childSnapshot.key,
+//           ...childSnapshot.val()
+//         })
+//       })
+//       dispatch(setTransactions(transactions))
+//     }, (e)=>{ console.log(e) })
+//   }
+// }
 
 export const startSetTransactions = ()=>{
   return (dispatch, getState)=> {

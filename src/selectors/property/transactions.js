@@ -11,7 +11,7 @@ function checkLocationAndType(transaction, location, typeIncome){
   if( !location || transaction.location === location ){
     locationOK = true
   }
-  if( !typeIncome || transaction.typeIncome === typeIncome ){
+  if( !typeIncome || transaction.typeIncome === typeIncome || transaction.typeIncome === 'All $'){
     incomeOK = true
   }
   return locationOK && incomeOK
@@ -19,6 +19,7 @@ function checkLocationAndType(transaction, location, typeIncome){
 
 
 export default (transactions, { text, location, typeIncome, sortBy, startDate, endDate }) => {
+  console.log('FILTERS:', { text, location, typeIncome, sortBy, startDate, endDate })
   return transactions.filter((transaction) => {
     const createdAtMoment = moment(transaction.createdAt);
     const locationMatch = location

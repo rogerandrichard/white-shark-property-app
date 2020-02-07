@@ -157,12 +157,12 @@ export { firebase, googleAuthProvider, database as default }
 // }, 3000)
 
 //Fetch data a over and over(once) can ref root(ref()) or ref('location')
-// const onValueChange = database.ref()
-//   .on('value', (snapshot)=>{
-//     console.log(snapshot.val())
-//   }, (e)=>{
-//     console.log('Error with data fetching', e)
-//   })
+const onValueChange = database.ref()
+  .on('value', (snapshot)=>{
+    console.log(snapshot.val())
+  }, (e)=>{
+    console.log('Error with data fetching', e)
+  })
 //
 //
 // setTimeout(()=>{

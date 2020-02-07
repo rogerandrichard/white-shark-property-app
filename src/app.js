@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetTransactions } from './actions/property/transactions';
+import { startAddPropertyProfile } from './actions/property/properties';
+import { startAddTenantProfile } from './actions/property/tenants';
 import { login, logout } from './actions/auth';
 //import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
@@ -11,8 +13,36 @@ import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import { firebase } from './firebase/firebase'
 import LoadingPage from './components/LoadingPage'
+//import Reduce from './playground/reducejs'
 
-const store = configureStore();
+ const store = configureStore();
+//
+// const propertyData = {
+//   address: '47 Holland Avenue',
+//   city: 'Toronto',
+//   province:  'Ontario',
+//   country: 'Canada',
+//   postcode: 'M4B 2C7'
+//
+// }
+//
+// store.dispatch(startAddPropertyProfile(propertyData))
+//
+// const tenantData = {
+//   address: '47 Holland Avenue',
+//   name: 'Peter Pan',
+//   home:  '416-222-4444',
+//   cell: '416-333-5555',
+//   email: 'peter@pan.ca',
+//   startDate: 'today',
+//   endDate: undefined
+// }
+// store.dispatch(startAddTenantProfile(tenantData))
+
+
+
+//const sum =  Reduce()
+//console.log('Peeeeeee', sum)
 
 const jsx = (
   <Provider store={store}>

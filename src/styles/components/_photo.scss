@@ -1,10 +1,27 @@
+
+
+
 .photo {
   height: 120vh;
   width: 120vw;
 
 }
 
+.photo__content {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  background-color: $light-blue;
+}
+
+
+
 .photo__image {
   height: 8rem;
   width: 8rem;
+}
+
+.largephoto__image {
+  height: 20rem;
+  width: 20rem;
 }

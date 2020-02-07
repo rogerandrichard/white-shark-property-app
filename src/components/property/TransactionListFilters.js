@@ -28,6 +28,7 @@ export class TransactionListFilters extends React.Component {
   }
 
   onSortType = (e) => {
+    console.log("E VALUE", e.target.value)
     if (e.target.value === 'All $') {
       this.props.sortByType('');
     } else if (e.target.value === 'Revenue') {
@@ -38,7 +39,7 @@ export class TransactionListFilters extends React.Component {
   }
 
   onSortAddress = (e) => {
-    if (e.target.value === 'all') {
+    if (e.target.value === 'All Locs') {
       this.props.sortByLocation('');
     } else if (e.target.value === '27 Highland Drive') {
       this.props.sortByLocation('27 Highland Drive');
@@ -85,7 +86,7 @@ export class TransactionListFilters extends React.Component {
               value={this.props.filters.sortByType}
               onChange={this.onSortType}
             >
-              <option value="">All $</option>
+              <option value="All $">All $</option>
               <option value="Revenue">Revenue</option>
               <option value="Expense">Expense</option>
             </select>
@@ -97,9 +98,9 @@ export class TransactionListFilters extends React.Component {
               value={this.props.filters.sortByLoc}
               onChange={this.onSortAddress}
             >
-              <option value="all">All Locs</option>
+              <option value="All Locs">All Locs</option>
               <option value="27 Highland Drive">27 Highland Drive</option>
-              <option value="47 Highland Avenue">47 Highland Avenue</option>
+              <option value="47 Holland Avenue">47 Holland Avenue</option>
               <option value="88 Osler Street">88 Osler Street</option>
               <option value="36 Morse Street">36 Morse Street</option>
               <option value="249 Chisholm Avenue">249 Chisholm Avenue</option>

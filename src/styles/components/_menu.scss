@@ -1,0 +1,23 @@
+.menu {
+  background: $dark-blue;
+  color: white;
+}
+
+.menu__content {
+  align-items: left;
+  display: flex;
+  justify-content: none;
+  background-color: $dark-blue;
+}
+
+.menu__title {
+  color: white;
+  text-decoration: none;
+  h4 {
+    margin-right: 20px
+  }
+}
+
+.menu__active {
+  color: lightgreen;
+}
