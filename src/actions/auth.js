@@ -14,11 +14,8 @@ export const startLogin = ()=> {
 
 export const startLogin_f = ()=> {
   var provider = new firebase.auth.FacebookAuthProvider();
-  console.log('Provider', provider)
   return firebase.auth().signInWithPopup(provider).then(function(result) {
-    console.log('Result', result)
     var user = result.user;
-    console.log('User Photo', user.photoURL)
   }).catch(function(error) {
     var errorCode = error.code;
     var errorMessage = error.message;

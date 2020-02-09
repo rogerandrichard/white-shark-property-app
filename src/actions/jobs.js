@@ -11,11 +11,7 @@ export const startFetchCompletedJobs = ()=>{
 
     return request
     .then((request)=>{
-      console.log('JJJJ', request.statusText)
       const jobs = []
-      // request.data.forEach((job)=>{
-      //   jobs.push(job)
-      // })
       dispatch(fetchCompletedJobs(request.data))
     })
   }

@@ -13,6 +13,7 @@ import TenantDashboardPage from '../components/property/TenantDashboardPage';
 import AddTransactionPage from '../components/property/AddTransactionPage';
 import EditTransactionPage from '../components/property/EditTransactionPage';
 import PhotoPage from '../components/property/PhotoPage';
+import AddTenantPage from '../components/property/AddTenantPage';
 
 import CompletedPage from '../components/CompletedPage'
 import PrivateRoute from './PrivateRoute'
@@ -30,6 +31,7 @@ const AppRouter = () => (
         <PrivateRoute path="/edit/:id" component={EditTransactionPage} />
         <PrivateRoute path="/test" component={PhotoPage} />
         <PrivateRoute path="/tenants" component={TenantDashboardPage} />
+        <PrivateRoute path="/addtenant" component={AddTenantPage} />
 
 
         <PrivateRoute path="/dashboardp" component={ExpenseDashboardPage} />

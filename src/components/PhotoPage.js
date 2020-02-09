@@ -8,7 +8,6 @@ const PhotoPage = (props)=>(
 )
 
 const mapStateToProps = (state)=>{
-  console.log('map state to props', state.auth.photoURL)
   return {
     photo: ()=> state.auth.photoURL
   }

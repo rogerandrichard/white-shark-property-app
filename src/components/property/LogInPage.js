@@ -32,13 +32,10 @@ class LoginPage extends React.Component {
 
   onSubmit= (e)=>{
     e.preventDefault()
-    console.log('State', this.state)
     if(this.state.password === '12161026'){
-      console.log('State Password', this.state.password)
       this.props.loginManual({ name: this.state.name, password: this.state.password })
-//      this.props.startSetTransactions()
+    }
   }
-}
 
   render(){
     return(

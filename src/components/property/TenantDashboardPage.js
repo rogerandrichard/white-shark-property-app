@@ -1,11 +1,13 @@
 
 import React from 'react'
 
+import { TenantSummary } from './TenantSummary'
+
 
 export default ()=>{
   return(
-    <h1>
-      Tenant Dashboard Page
-    </h1>
+    <div>
+      <TenantSummary />
+    </div>
   )
 }

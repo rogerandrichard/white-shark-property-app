@@ -18,7 +18,6 @@ export const TransactionList = (props) => (
         </div>
       ) : (
           props.transactions.map((transaction) => {
-            console.log(transaction)
             return <TransactionListItem key={transaction.id} {...transaction} />;
           })
         )

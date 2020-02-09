@@ -21,7 +21,6 @@ export default (state = transactionsReducerDefaultState, action) => {
         };
       });
     case 'SET_TRANSACTIONS':
-      console.log('TTTT', action.transactions)
       return action.transactions
     default:
       return state;

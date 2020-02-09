@@ -1,13 +1,8 @@
 import moment from 'moment';
 
-// Get visible transactions
-
 function checkLocationAndType(transaction, location, typeIncome){
   let locationOK = false
   let incomeOK = false
-
-  console.log('Tran Loc Filter:', location)
-  console.log('Tran Income Filter:', typeIncome)
   if( !location || transaction.location === location ){
     locationOK = true
   }
@@ -17,9 +12,7 @@ function checkLocationAndType(transaction, location, typeIncome){
   return locationOK && incomeOK
 }
 
-
 export default (transactions, { text, location, typeIncome, sortBy, startDate, endDate }) => {
-  console.log('FILTERS:', { text, location, typeIncome, sortBy, startDate, endDate })
   return transactions.filter((transaction) => {
     const createdAtMoment = moment(transaction.createdAt);
     const locationMatch = location

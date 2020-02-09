@@ -14,8 +14,11 @@ import 'react-dates/lib/css/_datepicker.css';
 import { firebase } from './firebase/firebase'
 import LoadingPage from './components/LoadingPage'
 //import Reduce from './playground/reducejs'
+import { address_array } from '../property-data/address_objects'
 
  const store = configureStore();
+
+ console.log(address_array())
 //
 // const propertyData = {
 //   address: '47 Holland Avenue',

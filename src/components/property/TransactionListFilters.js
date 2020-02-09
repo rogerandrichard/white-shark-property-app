@@ -28,7 +28,6 @@ export class TransactionListFilters extends React.Component {
   }
 
   onSortType = (e) => {
-    console.log("E VALUE", e.target.value)
     if (e.target.value === 'All $') {
       this.props.sortByType('');
     } else if (e.target.value === 'Revenue') {
@@ -141,8 +140,6 @@ export class TransactionListFilters extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-  console.log('ppP', state.filters)
-
   return {
   filters: state.filters
   }

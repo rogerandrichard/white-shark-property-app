@@ -22,7 +22,6 @@ appId: "1:750687199911:web:65cd77f996fd225fbe7182",
 measurementId: "G-K0S5ZW7C7Y"
 };
 
-console.log('Database Config', firebaseConfig)
 
 
 // }else if(process.env.NODE_ENV === 'production'){
@@ -40,8 +39,6 @@ console.log('Database Config', firebaseConfig)
 firebase.initializeApp(firebaseConfig)
 
 const database = firebase.database()
-
-console.log('Database', database)
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 
@@ -157,12 +154,12 @@ export { firebase, googleAuthProvider, database as default }
 // }, 3000)
 
 //Fetch data a over and over(once) can ref root(ref()) or ref('location')
-const onValueChange = database.ref()
-  .on('value', (snapshot)=>{
-    console.log(snapshot.val())
-  }, (e)=>{
-    console.log('Error with data fetching', e)
-  })
+// const onValueChange = database.ref()
+//   .on('value', (snapshot)=>{
+//     console.log(snapshot.val())
+//   }, (e)=>{
+//     console.log('Error with data fetching', e)
+//   })
 //
 //
 // setTimeout(()=>{
