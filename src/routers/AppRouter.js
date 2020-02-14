@@ -9,11 +9,12 @@ import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/property/LogInPage'
 
 import PropertyDashboardPage from '../components/property/PropertyDashboardPage';
-import TenantDashboardPage from '../components/property/TenantDashboardPage';
+import TenantDashboardPage from '../components/tenants/TenantDashboardPage';
 import AddTransactionPage from '../components/property/AddTransactionPage';
 import EditTransactionPage from '../components/property/EditTransactionPage';
 import PhotoPage from '../components/property/PhotoPage';
-import AddTenantPage from '../components/property/AddTenantPage';
+import AddTenantPage from '../components/tenants/AddTenantPage';
+import EditTenantPage from '../components/tenants/EditTenantPage';
 
 import CompletedPage from '../components/CompletedPage'
 import PrivateRoute from './PrivateRoute'
@@ -29,6 +30,7 @@ const AppRouter = () => (
         <PrivateRoute path="/dashboard" component={PropertyDashboardPage} />
         <PrivateRoute path="/create" component={AddTransactionPage} />
         <PrivateRoute path="/edit/:id" component={EditTransactionPage} />
+        <PrivateRoute path="/edit_tenant/:id" component={EditTenantPage} />
         <PrivateRoute path="/test" component={PhotoPage} />
         <PrivateRoute path="/tenants" component={TenantDashboardPage} />
         <PrivateRoute path="/addtenant" component={AddTenantPage} />

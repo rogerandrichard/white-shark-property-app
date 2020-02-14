@@ -2,15 +2,26 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
 import { setTextFilter, sortByType, sortByLocation, sortByDate, sortByAmount, setStartDate, setEndDate } from '../../actions/property/filters';
+import { address_array }  from '../../../property-data/address_objects'
+
 
 export class TransactionListFilters extends React.Component {
   state = {
-    calendarFocused: null
-  };
+    calendarFocused: null,
+    address_array: []
+  }
+
+  componentDidMount(){
+    this.setState({
+      address_array: address_array()
+    })
+  }
+
   onDatesChange = ({ startDate, endDate }) => {
     this.props.setStartDate(startDate);
     this.props.setEndDate(endDate);
-  };
+  }
+
   onFocusChange = (calendarFocused) => {
     this.setState(() => ({ calendarFocused }));
   }
@@ -40,29 +51,10 @@ export class TransactionListFilters extends React.Component {
   onSortAddress = (e) => {
     if (e.target.value === 'All Locs') {
       this.props.sortByLocation('');
-    } else if (e.target.value === '27 Highland Drive') {
-      this.props.sortByLocation('27 Highland Drive');
-    } else if (e.target.value === '47 Holland Avenue') {
-      this.props.sortByLocation('47 Holland Avenue');
-    } else if (e.target.value === '88 Osler Street') {
-      this.props.sortByLocation('88 Osler Street');
-    } else if (e.target.value === '36 Morse Street') {
-      this.props.sortByLocation('36 Morse Street');
-    } else if (e.target.value === '249 Chisholm Avenue') {
-      this.props.sortByLocation('249 Chisholm Avenue');
-    } else if (e.target.value === '833 SE 2nd Avenue') {
-      this.props.sortByLocation('833 SE 2nd Avenue');
-    } else if (e.target.value === '127 Empire Avenue') {
-      this.props.sortByLocation('127 Empire Avenue');
-    } else if (e.target.value === '23 Deneb Street') {
-      this.props.sortByLocation('23 Deneb Street');
-    } else if (e.target.value === '9 Leggot Avenue') {
-      this.props.sortByLocation('9 Leggot Avenue');
-    } else if (e.target.value === '12 Leggot Avenue') {
-      this.props.sortByLocation('12 Leggot Avenue');
+    } else {
+      this.props.sortByLocation(e.target.value)
     }
   };
-
 
   render() {
     return (
@@ -97,17 +89,9 @@ export class TransactionListFilters extends React.Component {
               value={this.props.filters.sortByLoc}
               onChange={this.onSortAddress}
             >
-              <option value="All Locs">All Locs</option>
-              <option value="27 Highland Drive">27 Highland Drive</option>
-              <option value="47 Holland Avenue">47 Holland Avenue</option>
-              <option value="88 Osler Street">88 Osler Street</option>
-              <option value="36 Morse Street">36 Morse Street</option>
-              <option value="249 Chisholm Avenue">249 Chisholm Avenue</option>
-              <option value="833 SE 2nd Avenue">833 SE 2nd Avenue</option>
-              <option value="127 Empire Avenue">127 Empire Avenue</option>
-              <option value="23 Deneb Street">23 Deneb Street</option>
-              <option value="9 Leggot Avenue">9 Leggot Avenue</option>
-              <option value="12 Leggot Avenue">12 Leggot Avenue</option>
+              { this.state.address_array.map((item)=>(
+                <option key={item}>{item}</option>
+              ))}
             </select>
           </div>
 
@@ -139,11 +123,9 @@ export class TransactionListFilters extends React.Component {
   }
 };
 
-const mapStateToProps = (state) => {
-  return {
-  filters: state.filters
-  }
-};
+const mapStateToProps = (state) => (
+  { filters: state.filters }
+);
 
 const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),

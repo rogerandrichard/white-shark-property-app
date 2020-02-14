@@ -34,6 +34,28 @@
   }
 }
 
+.list-item-inactive {
+  border: 1px solid darken($off-white, 7%);
+  border-top: none;
+  color: red;
+  display: flex;
+  flex-direction: column;
+  padding: $s-size;
+  text-decoration: none;
+  transition: background .6s ease;
+  &:hover{
+    background: $off-white;
+  }
+  @media (min-width: $desktop-breakpoint) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: $m-size;
+  }
+}
+
+
+
 .list-item--message {
   align-items: center;
   justify-content: center;
@@ -52,6 +74,7 @@
 .list-item__sub-title {
   color: $grey;
   font-size: $font-size-small;
+  margin-right: 5px;
 }
 
 .list-item__data {

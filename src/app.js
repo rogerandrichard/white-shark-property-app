@@ -5,7 +5,7 @@ import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetTransactions } from './actions/property/transactions';
 import { startAddPropertyProfile } from './actions/property/properties';
-import { startAddTenantProfile } from './actions/property/tenants';
+import { startAddTenantProfile } from './actions/tenants/tenants';
 import { login, logout } from './actions/auth';
 //import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
@@ -14,11 +14,20 @@ import 'react-dates/lib/css/_datepicker.css';
 import { firebase } from './firebase/firebase'
 import LoadingPage from './components/LoadingPage'
 //import Reduce from './playground/reducejs'
-import { address_array } from '../property-data/address_objects'
+import { address_array, property_data } from '../property-data/address_objects'
+import { tenant_data } from '../property-data/tenant_objects'
 
  const store = configureStore();
 
- console.log(address_array())
+
+// property_data.forEach((property)=>{
+//   store.dispatch(startAddPropertyProfile(property))
+// })
+
+// tenant_data.forEach((tenant)=>{
+//   store.dispatch(startAddTenantProfile(tenant))
+// })
+
 //
 // const propertyData = {
 //   address: '47 Holland Avenue',
@@ -44,8 +53,6 @@ import { address_array } from '../property-data/address_objects'
 
 
 
-//const sum =  Reduce()
-//console.log('Peeeeeee', sum)
 
 const jsx = (
   <Provider store={store}>

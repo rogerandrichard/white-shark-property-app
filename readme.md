@@ -1,3 +1,10 @@
+
+Make selects and array
+process env(Ben)
+take out expensify files
+
+
+
 # Git Commands
 
 - git init - Create a new git repo

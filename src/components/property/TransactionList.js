@@ -29,10 +29,10 @@ export const TransactionList = (props) => (
   </div>
 );
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = (state) => (
+  {
     transactions: selectTransactions(state.transactions, state.filters),
-  };
-};
+  }
+)
 
 export default connect(mapStateToProps)(TransactionList);

@@ -16,11 +16,12 @@ export const startAddPropertyProfile = (profileData = {})=>{
       country = '',
       postcode = '',
     } = profileData
-    const profile = { address, city, province, country, postcode }
-    return database.ref(`users/${12161026}/profiles`).push(profile).then((ref)=>{
+    const property = { address, city, province, country, postcode }
+    console.log("adding ", property)
+    return database.ref(`users/${12161026}/properties`).push(property).then((ref)=>{
       dispatch(addPropertyProfile({
         id: ref.key,
-        ...profile
+        ...property
       }))
     })
   }

@@ -4,8 +4,9 @@ import authReducer from '../reducers/auth';
 import expensesReducer from '../reducers/expenses';
 import transactionsReducer from '../reducers/property/transactions';
 import propertiesReducer from '../reducers/property/properties';
-import tenantsReducer from '../reducers/property/tenants';
+import tenantsReducer from '../reducers/tenants/tenants';
 import filtersReducer from '../reducers/property/filters';
+import tenantsFiltersReducer from '../reducers/tenants/filters';
 import jobsReducer from '../reducers/jobs';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -18,6 +19,7 @@ export default () => {
       properties: propertiesReducer,
       tenants: tenantsReducer,
       filters: filtersReducer,
+      tenantsFilters: tenantsFiltersReducer,
       auth: authReducer,
       jobs: jobsReducer
     }),

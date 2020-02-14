@@ -1,6 +1,10 @@
-import React from 'react';
-import moment from 'moment';
-import { SingleDatePicker } from 'react-dates';
+import React from 'react'
+import moment from 'moment'
+import { SingleDatePicker } from 'react-dates'
+import { address_array } from '../../../property-data/address_objects'
+
+
+
 
 export default class TransactionForm extends React.Component {
   constructor(props) {
@@ -14,10 +18,18 @@ export default class TransactionForm extends React.Component {
       amount: props.transaction ? (props.transaction.amount / 100).toString() : '',
       createdAt: props.transaction ? moment(props.transaction.createdAt) : moment(),
       calendarFocused: false,
+      address_array: [],
       form_button: props.transaction ? 'Edit Transaction' : 'Add Transaction',
       error: ''
     };
   }
+
+  componentDidMount(){
+    this.setState({
+      address_array: address_array()
+    })
+  }
+
 
   onLocationChange = (e) => {
     const location = e.target.value
@@ -106,17 +118,9 @@ export default class TransactionForm extends React.Component {
           value={this.state.location}
           onChange={this.onLocationChange}
         >
-          <option value="None Selected">None Selected</option>
-          <option value="27 Highland Drive">27 Highland Drive</option>
-          <option value="47 Holland Avenue">47 Holland Avenue</option>
-          <option value="88 Osler Street">88 Osler Street</option>
-          <option value="36 Morse Street">36 Morse Street</option>
-          <option value="249 Chisholm Avenue">249 Chisholm Avenue</option>
-          <option value="833 SE 2nd Avenue">833 SE 2nd Avenue</option>
-          <option value="127 Empire Avenue">127 Empire Avenue</option>
-          <option value="23 Deneb Street">23 Deneb Street</option>
-          <option value="9 Leggot Avenue">9 Leggot Avenue</option>
-          <option value="12 Leggot Avenue">12 Leggot Avenue</option>
+          { this.state.address_array.map((item)=>(
+            <option key={item}>{item}</option>
+          ))}
         </select>
 
         <input
