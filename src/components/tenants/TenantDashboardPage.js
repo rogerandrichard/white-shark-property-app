@@ -28,15 +28,18 @@ class TenantDashboardPage extends React.Component{
 
 
 const mapDispatchToProps = (dispatch)=>({
-  startSetTenants: ()=>{dispatch(startSetTenants()).then(()=>{
-      try {
-        // if (history.location.pathname === '/') {
-        //   history.push('/tenants')
-        // }
-      }catch(e) {
-        alert(e.message)
-      }
-    })}
+  startSetTenants: ()=>{dispatch(startSetTenants())}
 })
+
+    
+    // .then(()=>{
+    //   try {
+    //     // if (history.location.pathname === '/') {
+    //     //   history.push('/tenants')
+    //     // }
+    //   }catch(e) {
+    //     alert(e.message)
+    //   }
+    // })
 
 export default connect(undefined, mapDispatchToProps)(TenantDashboardPage)

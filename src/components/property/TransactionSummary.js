@@ -15,7 +15,8 @@ export const TransactionSummary = ({ transactionsCount, transactionTotal })=>{
            <h1 className='page-header__title'>Viewing <span>{transactionsCount}</span> {label} totalling <span>{dollarAmount}</span> </h1>
            <div className='page-header__actions'>
              <Link className='button' to='/create'>Add Transaction</Link>
-           </div>
+             <Link className='button' to='/desc_type'>Add Description Type</Link>
+            </div>
         </div>
       </div>
     )

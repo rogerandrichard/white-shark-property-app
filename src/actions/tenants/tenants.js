@@ -17,9 +17,10 @@ export const startAddTenantProfile = (tenantData = {})=>{
       email = '',
       startDate = 0,
       endDate = 0,
+      rent = '',
       notes = ''
     } = tenantData
-    const tenant = { address, name, home, cell, email, startDate, endDate, notes }
+    const tenant = { address, name, home, cell, email, startDate, endDate, rent, notes }
     return database.ref(`users/${12161026}/tenants`).push(tenant).then((ref)=>{
       dispatch(addTenantProfile({
         id: ref.key,
@@ -54,7 +55,9 @@ export const setTenants = (tenants)=>({
 export const startSetTenants = ()=>{
   return (dispatch, getState)=> {
     const uid = getState().auth.uid
-    return database.ref(`users/${uid}/tenants`)
+   return database.ref(`users/${uid}/tenants`)
+  //return fetch("http://localhost:3000/api/foos")
+
     .once('value')
     .then((snapshot)=>{
       const tenants = []

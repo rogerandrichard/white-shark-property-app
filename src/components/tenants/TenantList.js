@@ -5,6 +5,9 @@ import selectTenants from '../../selectors/tenants/tenants';
 import TenantListItem from './TenantListItem'
 
 const TenantList = (props)=> {
+  if(props.tenants.nil){
+    <LoadingPage />
+  } else {
   return (
     <div className='content-container'>
       <div className='list-header'>
@@ -17,6 +20,7 @@ const TenantList = (props)=> {
       </div>
     </div>
   )
+ }
 }
 
 const mapStateToProps = (state)=>{

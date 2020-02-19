@@ -26,6 +26,7 @@ export default class TenantForm extends React.Component {
       endDate: props.tenant && legit_endDate ? legit_endDate : moment(0),
       notes: props.tenant ? props.tenant.notes : '',
       active: props.tenant && legit_endDate ? 'InActive' : 'Active',
+      rent: props.tenant ? props.tenant.rent : '',
       address_array: [],
       calendarStartFocused: false,
       calendarEndFocused: false,
@@ -42,6 +43,11 @@ export default class TenantForm extends React.Component {
   onNameChange = (e)=>{
     const name = e.target.value
     this.setState({ name })
+  }
+
+  onRentChange = (e)=>{
+    const rent = e.target.value
+    this.setState({ rent })
   }
 
   onAddressChange = (e)=>{
@@ -122,6 +128,7 @@ export default class TenantForm extends React.Component {
         email: this.state.email,
         startDate: this.state.startDate.valueOf(),
         endDate: endDate,
+        rent: parseFloat(this.state.rent, 10) * 100,
         notes: this.state.notes
       })
     }
@@ -198,8 +205,14 @@ export default class TenantForm extends React.Component {
           isOutsideRange={() => false}
         />
         : null }
-
-
+        <input
+          type='text'
+          className='text-input'
+          placeholder='Rent'
+          value={ this.state.rent }
+          autoFocus
+          onChange = { this.onRentChange }
+        />
         <textarea
           className='textarea_large'
           placeholder="Add a note for your tenant (optional)"

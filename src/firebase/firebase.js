@@ -1,26 +1,26 @@
 import * as firebase from 'firebase'
 
 
-//   const firebaseConfig = {
-//     apiKey: process.env.FIREBASE_API_KEY,
-//     authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-//     databaseURL: process.env.FIREBASE_DATABASE_URL,
-//     projectID: process.env.FIREBASE_PROJECT_ID,
-//     storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-//     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
-// }
+  const firebaseConfig = {
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.FIREBASE_DATABASE_URL,
+    projectID: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
+}
 
 
-const firebaseConfig = {
-apiKey: "AIzaSyAXs-FAQlWuLTMG81VqmCZx_ABmN5ezjng",
-authDomain: "property-management-ff9f7.firebaseapp.com",
-databaseURL: "https://property-management-ff9f7.firebaseio.com",
-projectId: "property-management-ff9f7",
-storageBucket: "property-management-ff9f7.appspot.com",
-messagingSenderId: "750687199911",
-appId: "1:750687199911:web:65cd77f996fd225fbe7182",
-measurementId: "G-K0S5ZW7C7Y"
-};
+// const firebaseConfig = {
+// apiKey: "AIzaSyAXs-FAQlWuLTMG81VqmCZx_ABmN5ezjng",
+// authDomain: "property-management-ff9f7.firebaseapp.com",
+// databaseURL: "https://property-management-ff9f7.firebaseio.com",
+// projectId: "property-management-ff9f7",
+// storageBucket: "property-management-ff9f7.appspot.com",
+// messagingSenderId: "750687199911",
+// appId: "1:750687199911:web:65cd77f996fd225fbe7182",
+// measurementId: "G-K0S5ZW7C7Y"
+// };
 
 
 
