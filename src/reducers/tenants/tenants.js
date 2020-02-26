@@ -1,7 +1,6 @@
 const tenantsReducerDefaultState = []
 
 export default (state = tenantsReducerDefaultState, action)=>{
-  console.log('Action', action)
   switch(action.type){
     case 'ADD_TENANT_PROFILE':
       return [

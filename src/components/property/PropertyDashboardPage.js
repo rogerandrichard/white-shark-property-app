@@ -6,6 +6,8 @@ import TransactionList from './TransactionList';
 import TransactionListFilters from './TransactionListFilters';
 import TransactionSummary from './TransactionSummary'
 import { startSetTransactions } from '../../actions/property/transactions';
+import { startSetDescriptions } from '../../actions/descriptions/descriptions'
+
 
 
 
@@ -13,6 +15,7 @@ class PropertyDashboardPage extends React.Component {
 
   componentDidMount(){
     this.props.startSetTransactions()
+    this.props.startSetDescriptions()
   }
 
   render(){
@@ -28,16 +31,8 @@ class PropertyDashboardPage extends React.Component {
 
 const mapDispatchToProps = (dispatch)=>(
   {
-    startSetTransactions: ()=>{dispatch(startSetTransactions()).then(()=>{
-        try {
-          // if (history.location.pathname === '/') {
-          //   history.push('/dashboard')
-          // }
-        }catch(e) {
-            alert(e.message)
-        }
-      })
-    }
+    startSetTransactions: ()=>{dispatch(startSetTransactions())},
+    startSetDescriptions: ()=>{dispatch(startSetDescriptions())}
   }
 )
 

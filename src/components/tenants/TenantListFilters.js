@@ -22,7 +22,6 @@ export class TenantListFilters extends React.Component {
 
   onSortType = (e) => {
     const type = e.target.value
-    console.log('TTTTYYYYPPEEEE', type)
     this.props.sortByType(type);
   }
 

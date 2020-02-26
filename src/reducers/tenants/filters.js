@@ -9,7 +9,6 @@ const filtersReducerDefaultState = {
 };
 
 export default (state = filtersReducerDefaultState, action) => {
-  console.log('ACTION', action)
   switch (action.type) {
     case 'SET_NAME_FILTER':
       return {

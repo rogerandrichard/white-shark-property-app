@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetTransactions } from './actions/property/transactions';
+import { startSetDescriptions } from './actions/descriptions/descriptions';
 import { startAddPropertyProfile } from './actions/property/properties';
 import { startAddTenantProfile } from './actions/tenants/tenants';
 import { login, logout } from './actions/auth';
@@ -17,7 +18,7 @@ import LoadingPage from './components/LoadingPage'
 import { address_array, property_data } from '../property-data/address_objects'
 import { tenant_data } from '../property-data/tenant_objects'
 
- const store = configureStore();
+const store = configureStore();
 
 
 // property_data.forEach((property)=>{
@@ -72,14 +73,14 @@ const renderApp = ()=>{
 
 //ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 const state = store.getState()
+
 if(state.name==='roger' || state.name==='shanti'){
-      renderApp()
-        if (history.location.pathname === '/') {
-          history.push('/dashboard')
-        }
+      // renderApp()
+      //   if (history.location.pathname === '/') {
+      //     history.push('/dashboard')
+      //   }
 }else{
   renderApp()
-
 }
 
 // firebase.auth().onAuthStateChanged((user)=>{

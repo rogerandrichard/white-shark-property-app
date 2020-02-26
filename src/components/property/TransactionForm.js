@@ -9,8 +9,9 @@ import { address_array } from '../../../property-data/address_objects'
 export default class TransactionForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
+      descTypes: props.descriptions,
+      descType: '',
       location: props.transaction ? props.transaction.location : '',
       typeIncome: props.transaction ? props.transaction.typeIncome : '',
       description: props.transaction ? props.transaction.description : '',
@@ -30,6 +31,11 @@ export default class TransactionForm extends React.Component {
     })
   }
 
+  onDescTypeChange = (e) => {
+    const descType = e.target.value
+    console.log('PEEE', descType)
+    this.setState(()=>({ descType }))
+  }
 
   onLocationChange = (e) => {
     const location = e.target.value
@@ -67,8 +73,9 @@ export default class TransactionForm extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    if (!this.state.description || !this.state.amount || this.state.location==='None Selected' || this.state.typeIncome==='None Selected') {
+    if (!this.state.description || !this.state.amount || this.state.descType==='None Selected' || this.state.location==='None Selected' || this.state.typeIncome==='None Selected') {
       let error = 'Please provide '
+      if(this.state.descType==='None Selected'){ error+='Desc Type / ' }
       if(!this.state.description){ error+='Description / ' }
       if(!this.state.amount){ error+='Amount / ' }
       if(this.state.location==='None Selected'){ error+='Location / ' }
@@ -79,7 +86,7 @@ export default class TransactionForm extends React.Component {
       this.props.onSubmit({
         location: this.state.location,
         typeIncome: this.state.typeIncome,
-        description: this.state.description,
+        description: this.state.descType +'-' + this.state.description,
         amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf(),
         note: this.state.note
@@ -92,6 +99,14 @@ export default class TransactionForm extends React.Component {
     return (
       <form className='form' onSubmit={this.onSubmit}>
         {this.state.error && <p className='form__error'>{this.state.error}</p>}
+        <select
+          className='select'
+          onChange={this.onDescTypeChange}
+        >
+          { this.state.descTypes.map((item)=>(
+            <option key={item}>{item}</option>
+          ))}
+        </select>
         <input
           className='text-input'
           type="text"

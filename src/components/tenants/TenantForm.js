@@ -84,10 +84,8 @@ export default class TenantForm extends React.Component {
     const active = e.target.value
     this.setState({ active })
     if(active==='Active'){
-      console.log('End Date$$', active)
       this.setState(() => ({ endDate: undefined }));
     }else if(active==='InActive'){
-      console.log('End Date$$', active)
       this.setState(() => ({ endDate: moment() }));
     }
   }

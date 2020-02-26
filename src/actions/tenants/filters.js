@@ -4,7 +4,6 @@ export const setNameFilter = (name = '') => ({
 });
 
 export const sortByType = (typeTenant) => {
-  console.log('&&&&&&&&&', typeTenant)
   return {
     type: 'SORT_BY_TYPE',
     typeTenant

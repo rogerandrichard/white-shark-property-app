@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TransactionForm from './TransactionForm';
 import { startAddTransaction } from '../../actions/property/transactions';
+import sortedDescriptions from '../../selectors/descriptions/descriptions'
+
 
 export class AddTransactionPage extends React.Component {
 
@@ -20,6 +22,7 @@ export class AddTransactionPage extends React.Component {
         </div>
         <div className='content-container'>
           <TransactionForm
+            descriptions={this.props.descriptions}
             onSubmit={this.onSubmit}
           />
         </div>
@@ -28,8 +31,15 @@ export class AddTransactionPage extends React.Component {
   }
 }
 
+const mapStateToProps = (state)=>(
+  {
+    descriptions: sortedDescriptions(state.descriptions)
+  }
+)
+
+
 const mapDispatchToProps = (dispatch) => ({
   startAddTransaction: (transaction) => dispatch(startAddTransaction(transaction))
 });
 
-export default connect(undefined, mapDispatchToProps)(AddTransactionPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AddTransactionPage);

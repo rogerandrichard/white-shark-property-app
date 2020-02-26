@@ -17,7 +17,6 @@ export const startAddPropertyProfile = (profileData = {})=>{
       postcode = '',
     } = profileData
     const property = { address, city, province, country, postcode }
-    console.log("adding ", property)
     return database.ref(`users/${12161026}/properties`).push(property).then((ref)=>{
       dispatch(addPropertyProfile({
         id: ref.key,
